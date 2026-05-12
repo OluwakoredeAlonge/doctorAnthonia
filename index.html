@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dr. Mrs. Anthonia Yemisi Soje | Mental Health &amp; Wellness</title>
-  <meta name="description" content="Dr. Anthonia Yemisi Soje — Medical Practitioner, Psycho-trauma Therapist, Marriage Counsellor, ADHD Specialist &amp; Author. Founder of Fosterheirs Mental Health Therapists, Oye-Ekiti." />
+  <meta name="description" content="Dr. Anthonia Yemisi Soje  Medical Practitioner, Psycho-trauma Therapist, Marriage Counsellor, ADHD Specialist &amp; Author. Founder of Fosterheirs Mental Health Therapists, Oye-Ekiti." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -122,6 +122,36 @@
     .ticker-track:hover { animation-play-state: paused; }
 
     .hero-orb-1, .hero-orb-2 { transition: transform .12s ease-out; will-change: transform; }
+
+    /* ── Hero background image ── */
+    .hero-bg {
+      background: url('DrAnthonia.png') center 18% / cover no-repeat #0F2444;
+    }
+    @media (max-width: 480px) {
+      /* On small phones show the upper portion of the photo (face/shoulders) */
+      .hero-bg { background-position: center top; }
+    }
+    @media (min-width: 481px) and (max-width: 768px) {
+      .hero-bg { background-position: center 10%; }
+    }
+    @media (min-width: 769px) and (max-width: 1023px) {
+      .hero-bg { background-position: center 15%; }
+    }
+
+    /* Multi-layer overlay so text stays crisp over the photo */
+    .hero-overlay {
+      background:
+        /* vignette  edges darker */
+        radial-gradient(ellipse at center, transparent 40%, rgba(8,21,38,.55) 100%),
+        /* top-to-bottom tonal fade */
+        linear-gradient(
+          to bottom,
+          rgba(8,21,38,.88)  0%,
+          rgba(15,36,68,.62) 30%,
+          rgba(15,36,68,.58) 60%,
+          rgba(8,21,38,.92)  100%
+        );
+    }
   </style>
 </head>
 <body class="bg-cream antialiased">
@@ -165,10 +195,13 @@
 
 
 <!-- ══════════ HERO ══════════ -->
-<section id="home" class="relative min-h-screen bg-primary flex flex-col items-center justify-center overflow-hidden">
+<section id="home" class="relative min-h-screen hero-bg flex flex-col items-center justify-center overflow-hidden">
+
+  <!-- Photo overlay (multi-layer gradient for legibility) -->
+  <div class="hero-overlay absolute inset-0 pointer-events-none"></div>
 
   <!-- Background layers -->
-  <div class="absolute inset-0 hero-dots pointer-events-none opacity-50"></div>
+  <div class="absolute inset-0 hero-dots pointer-events-none opacity-30"></div>
   <div class="hero-orb-1 absolute -top-20 -left-20 w-[560px] h-[560px] rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(201,146,42,.1),transparent 70%)"></div>
   <div class="hero-orb-2 absolute -bottom-20 -right-20 w-[460px] h-[460px] rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(46,125,99,.09),transparent 70%)"></div>
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(201,146,42,.03),transparent 65%)"></div>
@@ -183,8 +216,8 @@
   <div class="absolute top-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/6 to-transparent pointer-events-none"></div>
   <div class="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/4 to-transparent pointer-events-none"></div>
 
-  <!-- Floating credential cards — left -->
-  <div class="float-card-1 hero-float-card absolute left-6 xl:left-16 top-[27%] hidden lg:flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-3 shadow-xl">
+  <!-- Floating credential cards  left -->
+  <div class="float-card-1 hero-float-card absolute left-6 xl:left-16 top-[27%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
     <div class="w-9 h-9 rounded-xl bg-blue-500/25 flex items-center justify-center flex-shrink-0">
       <i data-lucide="brain" class="w-4 h-4 text-blue-300"></i>
     </div>
@@ -194,7 +227,7 @@
     </div>
   </div>
 
-  <div class="float-card-2 hero-float-card absolute left-6 xl:left-16 top-[60%] hidden lg:flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-3 shadow-xl">
+  <div class="float-card-2 hero-float-card absolute left-6 xl:left-16 top-[60%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
     <div class="w-9 h-9 rounded-xl bg-gold/25 flex items-center justify-center flex-shrink-0">
       <i data-lucide="book-open" class="w-4 h-4 text-gold-light"></i>
     </div>
@@ -204,8 +237,8 @@
     </div>
   </div>
 
-  <!-- Floating credential cards — right -->
-  <div class="float-card-3 hero-float-card absolute right-6 xl:right-16 top-[30%] hidden lg:flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-3 shadow-xl">
+  <!-- Floating credential cards  right -->
+  <div class="float-card-3 hero-float-card absolute right-6 xl:right-16 top-[30%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
     <div class="w-9 h-9 rounded-xl bg-sage/30 flex items-center justify-center flex-shrink-0">
       <i data-lucide="heart" class="w-4 h-4 text-green-300"></i>
     </div>
@@ -215,7 +248,7 @@
     </div>
   </div>
 
-  <div class="float-card-4 hero-float-card absolute right-6 xl:right-16 top-[62%] hidden lg:flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-3 shadow-xl">
+  <div class="float-card-4 hero-float-card absolute right-6 xl:right-16 top-[62%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
     <div class="w-9 h-9 rounded-xl bg-purple-500/25 flex items-center justify-center flex-shrink-0">
       <i data-lucide="zap" class="w-4 h-4 text-purple-300"></i>
     </div>
@@ -226,7 +259,7 @@
   </div>
 
   <!-- Centered main content -->
-  <div class="relative max-w-4xl mx-auto px-6 pt-28 pb-20 text-center text-white z-10 w-full">
+  <div class="relative max-w-4xl mx-auto px-5 sm:px-6 pt-28 pb-24 text-center text-white z-10 w-full">
 
     <div class="inline-flex items-center gap-2 border border-gold/35 bg-gold/10 text-gold text-xs font-semibold px-5 py-2 rounded-full mb-10 tracking-widest uppercase">
       <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
@@ -246,7 +279,7 @@
     <p class="text-white/55 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
       Bridging medicine, psychology, and faith to restore lives. Founder of
       <span class="text-white/90 font-semibold">Fosterheirs Mental Health Therapists</span>
-      — healing hearts, rebuilding homes, restoring hope.
+       healing hearts, rebuilding homes, restoring hope.
     </p>
 
     <div class="flex flex-wrap gap-4 justify-center mb-16">
@@ -259,28 +292,28 @@
     </div>
 
     <!-- Stats grid with count-up -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/8 rounded-3xl overflow-hidden border border-white/8">
-      <div class="bg-primary/70 px-6 py-7">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-sm">
+      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
         <p class="font-serif text-4xl font-bold text-gold" data-count="8" data-suffix="+">0</p>
-        <p class="text-white/40 text-xs mt-2 uppercase tracking-wider leading-relaxed">Published<br>Books</p>
+        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Published<br>Books</p>
       </div>
-      <div class="bg-primary/70 px-6 py-7">
+      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
         <p class="font-serif text-4xl font-bold text-gold" data-count="200" data-suffix="+">0</p>
-        <p class="text-white/40 text-xs mt-2 uppercase tracking-wider leading-relaxed">Lives<br>Transformed</p>
+        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Lives<br>Transformed</p>
       </div>
-      <div class="bg-primary/70 px-6 py-7">
+      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
         <p class="font-serif text-4xl font-bold text-gold" data-count="50" data-suffix="+">0</p>
-        <p class="text-white/40 text-xs mt-2 uppercase tracking-wider leading-relaxed">Marriages<br>Restored</p>
+        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Marriages<br>Restored</p>
       </div>
-      <div class="bg-primary/70 px-6 py-7">
+      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
         <p class="font-serif text-4xl font-bold text-gold" data-count="100" data-suffix="+">0</p>
-        <p class="text-white/40 text-xs mt-2 uppercase tracking-wider leading-relaxed">Addicts<br>Rehabilitated</p>
+        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Addicts<br>Rehabilitated</p>
       </div>
     </div>
   </div>
 
   <!-- Credential ticker strip -->
-  <div class="absolute bottom-0 left-0 right-0 border-t border-white/8 bg-primary-dark/50 py-3 overflow-hidden">
+  <div class="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/40 backdrop-blur-md py-3 overflow-hidden">
     <div class="ticker-track flex items-center gap-10">
       <span class="flex-shrink-0 flex items-center gap-2.5 text-white/30 text-xs font-medium uppercase tracking-widest"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-gold/50"></i>Medical Practitioner</span>
       <span class="flex-shrink-0 text-gold/20 text-lg">·</span>
@@ -361,10 +394,10 @@
         </div>
 
         <p class="text-gray-500 leading-relaxed mb-5">
-          Dr. Mrs. Anthonia Yemisi Soje is a Nigerian medical practitioner and a leading voice at the intersection of <strong class="text-primary font-semibold">Christian faith and mental health</strong>. As Founder &amp; CEO of <strong class="text-primary font-semibold">Fosterheirs Mental Health Therapists</strong>, she holds the conviction that the Word of God and clinical science are not rivals — they are partners in producing whole, restored human beings.
+          Dr. Mrs. Anthonia Yemisi Soje is a Nigerian medical practitioner, board-certified psycho-trauma therapist, and a thought leader at the intersection of faith and psychology. As Founder &amp; CEO of <strong class="text-primary font-semibold">Fosterheirs Mental Health Consultancy</strong> and a leading voice at the intersection of <strong class="text-primary font-semibold">Christian faith and mental health</strong>, she has built her practice on a single conviction: that lasting healing must honour the whole person  mind, body, and soul. Drawing on medical expertise, psychological depth, and spiritual wisdom, she walks alongside individuals and families to restore hope where it has been most severely tested.
         </p>
         <p class="text-gray-500 leading-relaxed mb-8">
-          A sought-after speaker and published author, Dr. Soje brings this integrated message to corporate boardrooms, church pulpits, seminars, and conference halls — and walks it out in one-on-one therapy with individuals battling addiction, trauma, ADHD, relationship crises, and emotional instability.
+          Beyond the therapy room, Dr. Soje is a sought-after speaker and published author who carries this integrated message to corporate boardrooms, church pulpits, conference halls, and seminar stages  speaking with authority and compassion on addiction, trauma, ADHD, marriage, emotional resilience, and the often-overlooked role of faith in mental wellness.
         </p>
 
         <div class="flex flex-wrap gap-2 mb-8">
@@ -380,9 +413,9 @@
         <blockquote class="relative bg-cream rounded-2xl p-6 border-l-4 border-gold">
           <i data-lucide="quote" class="w-8 h-8 text-gold/20 absolute top-4 right-4"></i>
           <p class="font-serif italic text-primary text-lg leading-relaxed">
-            "God designed the mind just as He designed the soul — and true healing must honour both. This is why faith and science must walk together."
+            "God designed the mind just as He designed the soul  and true healing must honour both. This is why faith and science must walk together."
           </p>
-          <footer class="mt-3 text-gold text-sm font-semibold">— Dr. Anthonia Yemisi Soje</footer>
+          <footer class="mt-3 text-gold text-sm font-semibold"> Dr. Anthonia Yemisi Soje</footer>
         </blockquote>
       </div>
     </div>
@@ -399,11 +432,11 @@
       <h2 class="font-serif text-4xl lg:text-5xl font-bold text-primary">Services &amp; Speaking</h2>
       <div class="w-14 h-0.5 bg-gold mx-auto mt-3 mb-6"></div>
       <p class="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
-        From intimate therapy rooms to large conference halls — every service flows from one conviction: where faith meets science, whole people are formed.
+        From intimate therapy rooms to large conference halls  every service flows from one conviction: where faith meets science, whole people are formed.
       </p>
     </div>
 
-    <!-- ── Speaking & Events — full-width featured card ── -->
+    <!-- ── Speaking & Events  full-width featured card ── -->
     <div class="reveal mb-6">
       <div class="relative bg-primary rounded-3xl overflow-hidden border border-white/5">
         <div class="absolute inset-0 hero-dots opacity-25 pointer-events-none"></div>
@@ -421,7 +454,7 @@
               Invite Dr. Soje to<br><span class="text-gold">Speak at Your Event</span>
             </h3>
             <p class="text-white/55 leading-relaxed mb-8 max-w-md text-sm">
-              Dr. Soje is available as a keynote speaker, panelist, or workshop facilitator for corporate organisations, churches, conferences, retreats, and seminars. She delivers compelling, faith-grounded discourse on mental health, emotional resilience, addiction, marriage, and purpose — leaving audiences both informed and transformed.
+              Dr. Soje is available as a keynote speaker, panelist, or workshop facilitator for corporate organisations, churches, conferences, retreats, and seminars. She delivers compelling, faith-grounded discourse on mental health, emotional resilience, addiction, marriage, and purpose  leaving audiences both informed and transformed.
             </p>
 
             <!-- Speaking topic pills -->
@@ -500,7 +533,7 @@
     <!-- ── Bento service grid ── -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-      <!-- Faith & Mental Health — featured 2-col card -->
+      <!-- Faith & Mental Health  featured 2-col card -->
       <div class="svc-card group bg-white rounded-2xl overflow-hidden shadow-sm cursor-default reveal lg:col-span-2 border border-gold/15 relative">
         <div class="h-2 bg-gradient-to-r from-gold to-gold-light"></div>
         <div class="p-7 flex flex-col md:flex-row gap-5 items-start">
@@ -510,7 +543,7 @@
           <div>
             <div class="inline-flex items-center gap-1.5 bg-gold/10 text-gold text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Core Identity</div>
             <h3 class="font-serif text-xl font-bold text-primary mb-2">Faith &amp; Mental Health Integration</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">At the heart of Dr. Soje's practice is the conviction that Christian faith and clinical psychology are not rivals — they are partners. Every session, every talk, every book is anchored in the Word and backed by science.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">At the heart of Dr. Soje's practice is the conviction that Christian faith and clinical psychology are not rivals  they are partners. Every session, every talk, every book is anchored in the Word and backed by science.</p>
           </div>
         </div>
       </div>
@@ -606,7 +639,7 @@
             <i data-lucide="sun" class="w-6 h-6 text-teal-500 group-hover:text-white transition-colors duration-300"></i>
           </div>
           <h3 class="font-serif text-lg font-semibold text-primary mb-2">Emotional Wellness</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Ongoing support for emotional health, identity, self-worth, and resilience — mentoring individuals toward lasting inner wholeness.</p>
+          <p class="text-gray-400 text-sm leading-relaxed">Ongoing support for emotional health, identity, self-worth, and resilience  mentoring individuals toward lasting inner wholeness.</p>
           <div class="mt-5 flex items-center gap-1.5 text-teal-500 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
             <span>Book session</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </div>
@@ -626,7 +659,7 @@
       <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white">Books &amp; Publications</h2>
       <div class="w-14 h-0.5 bg-gold mx-auto mt-3 mb-6"></div>
       <p class="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">
-        A growing library of works on mental health, relationships, addiction recovery, and faith-based healing — each one a lamp on the path to wholeness.
+        A growing library of works on mental health, relationships, addiction recovery, and faith-based healing  each one a lamp on the path to wholeness.
       </p>
     </div>
 
@@ -658,7 +691,7 @@
         <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center mb-5"><i data-lucide="unlock" class="w-5 h-5 text-white"></i></div>
         <span class="text-xs bg-white/10 text-white/55 px-2.5 py-1 rounded-full inline-block mb-4">Devotional</span>
         <h3 class="font-serif text-lg font-bold text-white mb-2">Unshackled</h3>
-        <p class="text-white/50 text-sm leading-relaxed">Daily faith anchors for those in recovery — breaking free from addiction's chains through devotion.</p>
+        <p class="text-white/50 text-sm leading-relaxed">Daily faith anchors for those in recovery  breaking free from addiction's chains through devotion.</p>
         <div class="mt-5 pt-4 border-t border-white/8 flex items-center justify-between">
           <span class="text-gold text-xs font-medium">Dr. A.Y. Soje</span>
           <i data-lucide="arrow-up-right" class="w-4 h-4 text-white/25"></i>
@@ -669,7 +702,7 @@
         <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center mb-5"><i data-lucide="eye" class="w-5 h-5 text-white"></i></div>
         <span class="text-xs bg-white/10 text-white/55 px-2.5 py-1 rounded-full inline-block mb-4">Psychology</span>
         <h3 class="font-serif text-lg font-bold text-white mb-2">Unmasking You</h3>
-        <p class="text-white/50 text-sm leading-relaxed">A guide to personality disorders — understanding human behavior and emotional patterns.</p>
+        <p class="text-white/50 text-sm leading-relaxed">A guide to personality disorders  understanding human behavior and emotional patterns.</p>
         <div class="mt-5 pt-4 border-t border-white/8 flex items-center justify-between">
           <span class="text-gold text-xs font-medium">Dr. A.Y. Soje</span>
           <i data-lucide="arrow-up-right" class="w-4 h-4 text-white/25"></i>
@@ -737,10 +770,10 @@
         </h2>
 
         <p class="text-gray-500 leading-relaxed mt-10 mb-5">
-          Founded in 2023 by Dr. Soje, Fosterheirs is a counseling and rehabilitation organization based in Oye-Ekiti, Nigeria. Nestled within the <strong class="text-primary font-semibold">Heirs Specialist Hospital Complex</strong>, it operates as a sanctuary for holistic healing — addressing addiction, trauma, marital crises, and emotional instability.
+          Founded in 2023 by Dr. Soje, Fosterheirs is a counseling and rehabilitation organization based in Oye-Ekiti, Nigeria. Nestled within the <strong class="text-primary font-semibold">Heirs Specialist Hospital Complex</strong>, it operates as a sanctuary for holistic healing  addressing addiction, trauma, marital crises, and emotional instability.
         </p>
         <p class="text-gray-500 leading-relaxed mb-8">
-          The organization's mission is a fourfold healing approach: medical intervention, psychological therapy, social rehabilitation, and spiritual anchoring — because true recovery honors the whole person.
+          The organization's mission is a fourfold healing approach: medical intervention, psychological therapy, social rehabilitation, and spiritual anchoring  because true recovery honors the whole person.
         </p>
 
         <div class="grid grid-cols-2 gap-4 mb-10">
@@ -857,7 +890,7 @@
                 </div>
                 <i data-lucide="quote" class="w-7 h-7 text-gold/20 mb-3"></i>
                 <p class="font-serif italic text-gray-600 text-lg leading-relaxed mb-5">
-                  "After years of battling addiction alone, Dr. Soje's approach at Fosterheirs gave me something no other program had — a reason to believe recovery was actually possible. Today I am three years clean and my family is whole again."
+                  "After years of battling addiction alone, Dr. Soje's approach at Fosterheirs gave me something no other program had  a reason to believe recovery was actually possible. Today I am three years clean and my family is whole again."
                 </p>
                 <p class="font-semibold text-primary text-sm">Anonymous</p>
                 <p class="text-gold text-xs mt-0.5">Addiction Recovery Client</p>
@@ -939,7 +972,7 @@
       <h2 class="font-serif text-4xl lg:text-5xl font-bold text-primary">Begin Your Healing Journey</h2>
       <div class="w-14 h-0.5 bg-gold mx-auto mt-3 mb-6"></div>
       <p class="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
-        Take the first step toward wholeness. Reach out to schedule a consultation — we respond within 24 hours.
+        Take the first step toward wholeness. Reach out to schedule a consultation  we respond within 24 hours.
       </p>
     </div>
 
@@ -1028,7 +1061,7 @@
               </select>
             </div>
 
-            <!-- Event enquiry note — shown when Speaking/Event is selected -->
+            <!-- Event enquiry note  shown when Speaking/Event is selected -->
             <div id="eventNote" class="hidden bg-primary/5 border border-primary/15 rounded-xl px-5 py-4 flex items-start gap-3">
               <i data-lucide="mic" class="w-4 h-4 text-primary flex-shrink-0 mt-0.5"></i>
               <p class="text-primary text-xs leading-relaxed">
