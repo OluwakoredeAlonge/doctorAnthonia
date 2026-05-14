@@ -125,32 +125,31 @@
 
     /* ── Hero background image ── */
     .hero-bg {
-      background: url('DrAnthonia.png') center 18% / cover no-repeat #0F2444;
+      /* Face is centered in the image — keep it center on all screens */
+      background: url('DrAnthonia.png') center 20% / cover no-repeat #0F2444;
     }
-    @media (max-width: 480px) {
-      /* On small phones show the upper portion of the photo (face/shoulders) */
+    @media (max-width: 640px) {
+      /* Mobile: pull the image up so face sits clearly in the upper viewport */
       .hero-bg { background-position: center top; }
     }
-    @media (min-width: 481px) and (max-width: 768px) {
-      .hero-bg { background-position: center 10%; }
-    }
-    @media (min-width: 769px) and (max-width: 1023px) {
+    @media (min-width: 641px) and (max-width: 1023px) {
       .hero-bg { background-position: center 15%; }
     }
 
-    /* Multi-layer overlay so text stays crisp over the photo */
+    /* Vertical overlay:
+       Top   → moderately dark (navbar stays readable)
+       Middle → near-transparent (face shines through)
+       Bottom → very dark (all text is crisp over the dark zone)              */
     .hero-overlay {
-      background:
-        /* vignette  edges darker */
-        radial-gradient(ellipse at center, transparent 40%, rgba(8,21,38,.55) 100%),
-        /* top-to-bottom tonal fade */
-        linear-gradient(
-          to bottom,
-          rgba(8,21,38,.88)  0%,
-          rgba(15,36,68,.62) 30%,
-          rgba(15,36,68,.58) 60%,
-          rgba(8,21,38,.92)  100%
-        );
+      background: linear-gradient(
+        to bottom,
+        rgba(8,21,38,.82)  0%,
+        rgba(8,21,38,.18) 14%,
+        rgba(8,21,38,.08) 45%,
+        rgba(8,21,38,.68) 65%,
+        rgba(8,21,38,.93) 80%,
+        rgba(8,21,38,.97) 100%
+      );
     }
   </style>
 </head>
@@ -195,7 +194,7 @@
 
 
 <!-- ══════════ HERO ══════════ -->
-<section id="home" class="relative min-h-screen hero-bg flex flex-col items-center justify-center overflow-hidden">
+<section id="home" class="relative min-h-screen hero-bg flex flex-col overflow-hidden">
 
   <!-- Photo overlay (multi-layer gradient for legibility) -->
   <div class="hero-overlay absolute inset-0 pointer-events-none"></div>
@@ -216,8 +215,8 @@
   <div class="absolute top-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/6 to-transparent pointer-events-none"></div>
   <div class="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/4 to-transparent pointer-events-none"></div>
 
-  <!-- Floating credential cards  left -->
-  <div class="float-card-1 hero-float-card absolute left-6 xl:left-16 top-[27%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
+  <!-- Floating credential cards — LEFT edge, framing the face zone -->
+  <div class="float-card-1 absolute left-4 xl:left-12 top-[22%] hidden lg:flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/50 z-10">
     <div class="w-9 h-9 rounded-xl bg-blue-500/25 flex items-center justify-center flex-shrink-0">
       <i data-lucide="brain" class="w-4 h-4 text-blue-300"></i>
     </div>
@@ -227,7 +226,7 @@
     </div>
   </div>
 
-  <div class="float-card-2 hero-float-card absolute left-6 xl:left-16 top-[60%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
+  <div class="float-card-2 absolute left-4 xl:left-12 top-[47%] hidden lg:flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/50 z-10">
     <div class="w-9 h-9 rounded-xl bg-gold/25 flex items-center justify-center flex-shrink-0">
       <i data-lucide="book-open" class="w-4 h-4 text-gold-light"></i>
     </div>
@@ -237,8 +236,8 @@
     </div>
   </div>
 
-  <!-- Floating credential cards  right -->
-  <div class="float-card-3 hero-float-card absolute right-6 xl:right-16 top-[30%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
+  <!-- Floating credential cards — RIGHT edge, framing the face zone -->
+  <div class="float-card-3 absolute right-4 xl:right-12 top-[25%] hidden lg:flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/50 z-10">
     <div class="w-9 h-9 rounded-xl bg-sage/30 flex items-center justify-center flex-shrink-0">
       <i data-lucide="heart" class="w-4 h-4 text-green-300"></i>
     </div>
@@ -248,7 +247,7 @@
     </div>
   </div>
 
-  <div class="float-card-4 hero-float-card absolute right-6 xl:right-16 top-[62%] hidden lg:flex items-center gap-3 bg-black/35 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/40">
+  <div class="float-card-4 absolute right-4 xl:right-12 top-[49%] hidden lg:flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 shadow-2xl shadow-black/50 z-10">
     <div class="w-9 h-9 rounded-xl bg-purple-500/25 flex items-center justify-center flex-shrink-0">
       <i data-lucide="zap" class="w-4 h-4 text-purple-300"></i>
     </div>
@@ -258,57 +257,68 @@
     </div>
   </div>
 
-  <!-- Centered main content -->
-  <div class="relative max-w-4xl mx-auto px-5 sm:px-6 pt-28 pb-24 text-center text-white z-10 w-full">
+  <!-- Face spacer: reserves the upper viewport so the doctor's face is clearly visible.
+       flex-1 lets it grow on tall screens; min-h anchors the minimum face zone per breakpoint.
+       pt-20 clears the fixed navbar (80px). -->
+  <div class="flex-1 min-h-[46vh] sm:min-h-[52vh] lg:min-h-[58vh] pt-20 pointer-events-none"></div>
 
-    <div class="inline-flex items-center gap-2 border border-gold/35 bg-gold/10 text-gold text-xs font-semibold px-5 py-2 rounded-full mb-10 tracking-widest uppercase">
-      <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-      Mental Health &amp; Wellness Professional
-    </div>
+  <!-- Text block: full-width centered, lives in the lower dark-overlay zone -->
+  <div class="relative z-10 w-full text-center text-white px-5 sm:px-8 pb-20">
+    <!-- Extra localised scrim so text is readable even on bright images -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary-dark/60 pointer-events-none -z-10"></div>
 
-    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-[82px] font-bold leading-tight mb-6">
-      Dr. Mrs. Anthonia<br><span class="hero-name-gold">Yemisi Soje</span>
-    </h1>
+    <div class="max-w-4xl mx-auto">
 
-    <div class="flex items-center justify-center gap-4 mb-7">
-      <div class="w-14 h-px bg-gold/35 flex-shrink-0"></div>
-      <p class="text-gold/85 font-medium text-base md:text-lg" id="typing-role" style="min-height:28px">&nbsp;</p>
-      <div class="w-14 h-px bg-gold/35 flex-shrink-0"></div>
-    </div>
-
-    <p class="text-white/55 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-      Bridging medicine, psychology, and faith to restore lives. Founder of
-      <span class="text-white/90 font-semibold">Fosterheirs Mental Health Therapists</span>
-       healing hearts, rebuilding homes, restoring hope.
-    </p>
-
-    <div class="flex flex-wrap gap-4 justify-center mb-16">
-      <a href="#contact" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-gold/30 hover:shadow-gold/50 hover:-translate-y-0.5 transform">
-        <i data-lucide="calendar" class="w-5 h-5"></i> Book a Session
-      </a>
-      <a href="#about" class="inline-flex items-center gap-2 border border-white/20 hover:border-gold/60 hover:bg-white/5 text-white hover:text-gold font-semibold px-8 py-4 rounded-full transition-all duration-200">
-        <i data-lucide="user" class="w-5 h-5"></i> About Dr. Soje
-      </a>
-    </div>
-
-    <!-- Stats grid with count-up -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-sm">
-      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
-        <p class="font-serif text-4xl font-bold text-gold" data-count="8" data-suffix="+">0</p>
-        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Published<br>Books</p>
+      <div class="inline-flex items-center gap-2 border border-gold/35 bg-gold/10 text-white text-xs font-semibold px-5 py-2 rounded-full mb-7 tracking-widest uppercase">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        Physician &amp; Mental Health Specialist
       </div>
-      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
-        <p class="font-serif text-4xl font-bold text-gold" data-count="200" data-suffix="+">0</p>
-        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Lives<br>Transformed</p>
+
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-5">
+        Dr. Mrs. Anthonia<br><span class="hero-name-gold">Yemisi Soje</span>
+      </h1>
+
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-12 h-px bg-gold/35 flex-shrink-0"></div>
+        <p class="text-gold/85 font-medium text-base md:text-lg" id="typing-role" style="min-height:28px">&nbsp;</p>
+        <div class="w-12 h-px bg-gold/35 flex-shrink-0"></div>
       </div>
-      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
-        <p class="font-serif text-4xl font-bold text-gold" data-count="50" data-suffix="+">0</p>
-        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Marriages<br>Restored</p>
+
+      <p class="text-white/65 text-base leading-relaxed mb-8 max-w-2xl mx-auto">
+        Bridging medicine, psychology, and faith to restore lives. Founder of
+        <span class="text-white/95 font-semibold">Fosterheirs Mental Health Consultancy</span>
+        — healing hearts, rebuilding homes, restoring hope.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center mb-10">
+        <a href="#contact" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-gold/30 hover:shadow-gold/50 hover:-translate-y-0.5 transform">
+          <i data-lucide="calendar" class="w-5 h-5"></i> Book a Session
+        </a>
+        <a href="#about" class="inline-flex items-center gap-2 border border-white/25 hover:border-gold/60 hover:bg-white/5 text-white hover:text-gold font-semibold px-8 py-4 rounded-full transition-all duration-200">
+          <i data-lucide="user" class="w-5 h-5"></i> About Dr. Soje
+        </a>
       </div>
-      <div class="bg-primary-dark/60 backdrop-blur-md px-6 py-7">
-        <p class="font-serif text-4xl font-bold text-gold" data-count="100" data-suffix="+">0</p>
-        <p class="text-white/50 text-xs mt-2 uppercase tracking-wider leading-relaxed">Addicts<br>Rehabilitated</p>
+
+      <!-- Stats grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 backdrop-blur-sm">
+        <div class="bg-primary-dark/70 backdrop-blur-md px-6 py-5">
+          <p class="font-serif text-3xl font-bold text-gold" data-count="8" data-suffix="+">0</p>
+          <p class="text-white/50 text-xs mt-1.5 uppercase tracking-wider leading-relaxed">Published<br>Books</p>
+        </div>
+        <div class="bg-primary-dark/70 backdrop-blur-md px-6 py-5">
+          <p class="font-serif text-3xl font-bold text-gold" data-count="200" data-suffix="+">0</p>
+          <p class="text-white/50 text-xs mt-1.5 uppercase tracking-wider leading-relaxed">Lives<br>Transformed</p>
+        </div>
+        <div class="bg-primary-dark/70 backdrop-blur-md px-6 py-5">
+          <p class="font-serif text-3xl font-bold text-gold" data-count="50" data-suffix="+">0</p>
+          <p class="text-white/50 text-xs mt-1.5 uppercase tracking-wider leading-relaxed">Marriages<br>Restored</p>
+        </div>
+        <div class="bg-primary-dark/70 backdrop-blur-md px-6 py-5">
+          <p class="font-serif text-3xl font-bold text-gold" data-count="100" data-suffix="+">0</p>
+          <p class="text-white/50 text-xs mt-1.5 uppercase tracking-wider leading-relaxed">Addicts<br>Rehabilitated</p>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -361,18 +371,21 @@
       <div class="relative reveal">
         <div class="absolute top-6 left-6 right-0 bottom-0 rounded-3xl bg-cream border border-gold/20"></div>
         <div class="relative rounded-3xl overflow-hidden bg-primary-light" style="aspect-ratio:4/5">
-          <div class="absolute inset-0 flex flex-col items-center justify-center text-white/20">
-            <img src="DrSoje.png"></img>
-            <p class="text-sm mt-2">Dr. Anthonia Yemisi Soje</p>
-          </div>
+         <div class="absolute inset-0 flex flex-col items-center justify-center text-white/20">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+        <source src="drAnthonia_.mp4" type="video/mp4">
+    </video>
+
+    <p class="text-sm mt-2">Dr. Anthonia Yemisi Soje</p>
+</div>
           <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary to-transparent"></div>
           <div class="absolute bottom-6 left-6 right-6">
             <p class="font-serif text-white text-lg font-semibold">Dr. Mrs. Anthonia Yemisi Soje</p>
-            <p class="text-gold/80 text-sm mt-0.5">MD · Psycho-trauma Therapist · Author</p>
+            <p class="text-gold/80 text-sm mt-0.5">Physician &amp; Psycho-trauma Therapist · Author</p>
           </div>
         </div>
         <div class="absolute -bottom-5 -right-5 bg-gold rounded-2xl p-5 shadow-2xl shadow-gold/30 text-white text-center">
-          <p class="font-serif text-3xl font-bold">2+</p>
+          <p class="font-serif text-3xl font-bold">5+</p>
           <p class="text-white/80 text-xs mt-0.5 leading-tight">Years of<br>Impact</p>
         </div>
       </div>
@@ -401,8 +414,7 @@
         </p>
 
         <div class="flex flex-wrap gap-2 mb-8">
-          <span class="bg-cream border border-gold/20 text-primary text-xs font-medium px-3 py-1.5 rounded-full">Medical Practitioner</span>
-          <span class="bg-cream border border-gold/20 text-primary text-xs font-medium px-3 py-1.5 rounded-full">Psycho-trauma Therapist</span>
+          <span class="bg-cream border border-gold/20 text-primary text-xs font-medium px-3 py-1.5 rounded-full">Physician &amp; Psycho-trauma Therapist</span>
           <span class="bg-cream border border-gold/20 text-primary text-xs font-medium px-3 py-1.5 rounded-full">ADHD Specialist</span>
           <span class="bg-cream border border-gold/20 text-primary text-xs font-medium px-3 py-1.5 rounded-full">Marriage Counsellor</span>
           <span class="bg-cream border border-gold/20 text-primary text-xs font-medium px-3 py-1.5 rounded-full">Conference Speaker</span>
